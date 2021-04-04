@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="/style.css" />
+	<title>Pi</title>
+</head>
+
+<body>
+	<main>
+		<div class="wrapper">
+			<h1>Pi Controller</h1>
+			<div class="flex-container">
+					<button id="restart">Restart</button>
+				<button id="shutdown">Shut Down</button>
+			</div>
+		</div>
+	</main>
+	<script>
+		const restartButton = document.getElementById("restart");
+		const shutdownButton = document.getElementById("shutdown");
+
+		restartButton.addEventListener("click", async () => {
+			try {
+				const response = await fetch("/rs", {
+					method: "POST",
+					body: {}
+				})
+			} catch (err) {
+				console.error(err);
+			}
+		});
+
+		shutdownButton.addEventListener("click", async () => {
+			try {
+				const response = await fetch("/sd", {
+					method: "POST",
+					body: {}
+				})
+			} catch (err) {
+				console.error(err);
+			}
+		});
+	</script>
+</body>
+
+</html>
