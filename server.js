@@ -17,8 +17,8 @@ app.get("/", (req, res) => {
 app.post("/rs", (req, res) => {
 	console.log("Restarting...");
 	res.status(200).send({status: "OK"});
+	exec("pm2 save");
 	setTimeout(() => {
-		exec("pm2 save");
 		exec("sudo shutdown -r now");
 	}, 2000);
 });
@@ -26,8 +26,8 @@ app.post("/rs", (req, res) => {
 app.post("/sd", (req, res) => {
 	console.log("Restarting...");
 	res.status(200).send({status: "OK"});
+	exec("pm2 save");
 	setTimeout(() => {
-		exec("pm2 save");
 		exec("sudo shutdown -h now");
 	}, 2000);
 });
