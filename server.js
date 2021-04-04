@@ -18,6 +18,7 @@ app.post("/rs", (req, res) => {
 	console.log("Restarting...");
 	res.status(200).send({status: "OK"});
 	setTimeout(() => {
+		exec("pm2 save");
 		exec("sudo shutdown -r now");
 	}, 2000);
 });
@@ -26,6 +27,7 @@ app.post("/sd", (req, res) => {
 	console.log("Restarting...");
 	res.status(200).send({status: "OK"});
 	setTimeout(() => {
+		exec("pm2 save");
 		exec("sudo shutdown -h now");
 	}, 2000);
 });
