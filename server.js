@@ -3,7 +3,7 @@ const app = express();
 const { exec } = require("child_process");
 
 const args = require("minimist")(process.argv.slice(2));
-const PORT = args["PORT"] || 3000;
+const PORT = args["PORT"] || 8888;
 
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");

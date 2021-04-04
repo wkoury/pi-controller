@@ -6,8 +6,7 @@
   "author": "Will Koury",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js --PORT=80"
+    "dev": "nodemon server.js"
   },
   "dependencies": {
     "ejs": "^3.1.6",
