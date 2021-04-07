@@ -13,14 +13,16 @@
 			<h1>Pi Controller</h1>
 			<h3 id="temp">CPU: <%= fahrenheit %>F</h3>
 			<div class="flex-container">
-					<button id="restart">Restart</button>
+				<button id="restart">Restart</button>
 				<button id="shutdown">Shut Down</button>
+				<button id="reload">Reload Server</button>
 			</div>
 		</div>
 	</main>
 	<script>
 		const restartButton = document.getElementById("restart");
 		const shutdownButton = document.getElementById("shutdown");
+		const reloadButton = document.getElementById("reload");
 
 		restartButton.addEventListener("click", async () => {
 			try {
@@ -36,6 +38,17 @@
 		shutdownButton.addEventListener("click", async () => {
 			try {
 				const response = await fetch("/sd", {
+					method: "POST",
+					body: {}
+				})
+			} catch (err) {
+				console.error(err);
+			}
+		});
+
+		reloadButton.addEventListener("click", async () => {
+			try {
+				const response = await fetch("/rl", {
 					method: "POST",
 					body: {}
 				})

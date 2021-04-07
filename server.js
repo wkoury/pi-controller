@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
 const { exec } = require("child_process");
-const { promiseImpl } = require("ejs");
 
 const PORT = 8888;
+const SERVER_ABSOLUTE_PATH = "~/code/pi-controller"
 
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
@@ -59,6 +59,11 @@ app.post("/sd", (req, res) => {
 		exec("sudo shutdown -h now");
 	}, 2000);
 });
+
+app.post("/rl", (req, res) => {
+	console.log("Reloading server...");
+	exec(`cd ${SERVER_ABSOLUTE_PATH} && git pull origin main && pm2 reload all`);
+});	
 
 app.listen(PORT, () => {
 	console.log(`Now listening at port ${PORT}...`);
