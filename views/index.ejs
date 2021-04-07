@@ -11,6 +11,7 @@
 	<main>
 		<div class="wrapper">
 			<h1>Pi Controller</h1>
+			<h3 id="temp">CPU: <%= fahrenheit %>F</h3>
 			<div class="flex-container">
 					<button id="restart">Restart</button>
 				<button id="shutdown">Shut Down</button>
@@ -42,6 +43,7 @@
 				console.error(err);
 			}
 		});
+
 	</script>
 </body>
 
